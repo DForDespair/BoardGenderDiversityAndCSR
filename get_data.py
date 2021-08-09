@@ -20,13 +20,13 @@ name_sector_data = blp.bdp(
 lookup = ['CUR_MKT_CAP', 'BOARD_SIZE', 'INDEPENDENT_DIRECTORS', 'PCT_IND_DIRECTORS_ON_COMP_CMTE',
           'NUMBER_OF_WOMEN_ON_BOARD', 'PCT_WOMEN_ON_BOARD', 'BOARD_AVERAGE_AGE', 'BOARD_MEETING_ATTENDANCE_PCT',
           'BOARD_MEETINGS_PER_YR', 'CEO_DUALITY', 'CEO_AGE', 'TOT_COMP_AW_TO_CEO_&_EQUIV',
-          'CHIEF_EXECUTIVE_OFFICER_TENURE', 'FEMALE_CEO_OR_EQUIVALENT', 'PCT_INSIDER_SHARES_OUT',
+          'CHIEF_EXECUTIVE_OFFICER_TENURE', 'CHIEF_EXECUTIVE_OFFICER_AGE', 'FEMALE_CEO_OR_EQUIVALENT',
           'EQY_INST_PCT_SH_OUT', 'ESG_DISCLOSURE_SCORE', 'ENVIRON_DISCLOSURE_SCORE',
-          'GOVNCE_DISCLOSURE_SCORE', 'SOCIAL_DISCLOSURE_SCORE', 'SUSTAINALYTICS_RANK', 'SUSTAINALYTICS_GOVERNANCE_PCT'
-          'SUSTAINALYTICS_ENVIRONMENT_PCT', 'SUSTAINALYTICS_SOCIAL_PERCENTILE']
+          'GOVNCE_DISCLOSURE_SCORE', 'SOCIAL_DISCLOSURE_SCORE']
 # weird workaround for lookup as BS data was not loading with regular lookup
 bs_lookup = ['BS_TOT_ASSET', 'FNCL_LVRG', 'TOBIN_Q_RATIO',
-             'RETURN_ON_ASSET', 'RETURN_COM_EQY', 'SALES_GROWTH', 'EPS_GROWTH']
+             'RETURN_ON_ASSET', 'RETURN_COM_EQY', 'SALES_GROWTH', 'EPS_GROWTH', 'PCT_INSIDER_SHARES_OUT', 'SUSTAINALYTICS_RANK', 'SUSTAINALYTICS_GOVERNANCE_PCT'
+             'SUSTAINALYTICS_ENVIRONMENT_PCT', 'SUSTAINALYTICS_SOCIAL_PERCENTILE', 'BOARD_AVERAGE_TENURE']
 firm_data = blp.bdh(tickers=tickers, flds=lookup,
                     start_date='2010-01-01', end_date='2021-01-01', Per='Y', periodicityAdjustment="ACTUAL")
 bs_data = blp.bdh(tickers=tickers, flds=bs_lookup,
@@ -52,6 +52,7 @@ df2.drop('index_y', axis=1, inplace=True)
 df2.drop('index_x', axis=1, inplace=True)
 df2.rename({'Date_x': 'Date'}, axis=1, inplace=True)
 df2.drop_duplicates(inplace=True)
-
+# %%
+df2
 # %%
 df2.to_csv('./NEWSAMPLE.csv', index=True, header=True)
