@@ -28,9 +28,9 @@ bs_lookup = ['BS_TOT_ASSET', 'FNCL_LVRG', 'TOBIN_Q_RATIO',
              'RETURN_ON_ASSET', 'RETURN_COM_EQY', 'SALES_GROWTH', 'EPS_GROWTH', 'PCT_INSIDER_SHARES_OUT', 'SUSTAINALYTICS_RANK', 'SUSTAINALYTICS_GOVERNANCE_PCT'
              'SUSTAINALYTICS_ENVIRONMENT_PCT', 'SUSTAINALYTICS_SOCIAL_PERCENTILE', 'BOARD_AVERAGE_TENURE']
 firm_data = blp.bdh(tickers=tickers, flds=lookup,
-                    start_date='2010-01-01', end_date='2021-01-01', Per='Y', periodicityAdjustment="ACTUAL")
+                    start_date='2010-12-31', end_date='2020-12-31', Per='Y', periodicityAdjustment="ACTUAL")
 bs_data = blp.bdh(tickers=tickers, flds=bs_lookup,
-                  start_date='2010-01-01', end_date='2021-01-01', Per='Y', periodicityAdjustment="ACTUAL")
+                  start_date='2010-12-31', end_date='2020-12-31', Per='Y', periodicityAdjustment="ACTUAL")
 
 # removes multi index format and sets index to date. rename columns
 firm_data = firm_data.stack(level=0).reset_index().set_index('level_0')
