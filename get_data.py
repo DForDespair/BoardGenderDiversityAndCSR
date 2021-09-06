@@ -26,7 +26,7 @@ lookup = ['CUR_MKT_CAP', 'BOARD_SIZE', 'INDEPENDENT_DIRECTORS', 'PCT_IND_DIRECTO
 # weird workaround for lookup as BS data was not loading with regular lookup
 bs_lookup = ['BS_TOT_ASSET', 'FNCL_LVRG', 'TOBIN_Q_RATIO',
              'RETURN_ON_ASSET', 'RETURN_COM_EQY', 'SALES_GROWTH', 'EPS_GROWTH', 'PCT_INSIDER_SHARES_OUT', 'SUSTAINALYTICS_RANK', 'SUSTAINALYTICS_GOVERNANCE_PCT'
-             'SUSTAINALYTICS_ENVIRONMENT_PCT', 'SUSTAINALYTICS_SOCIAL_PERCENTILE', 'BOARD_AVERAGE_TENURE']
+             'SUSTAINALYTICS_ENVIRONMENT_PCT', 'SUSTAINALYTICS_SOCIAL_PERCENTILE', 'BOARD_AVERAGE_TENURE', 'NET_INCOME', 'PCT_IND_DIRECTORS', 'SHORT_AND_LONG_TERM_DEBT', 'TOTAL_EQUITY']
 firm_data = blp.bdh(tickers=tickers, flds=lookup,
                     start_date='2010-12-31', end_date='2020-12-31', Per='Y', periodicityAdjustment="ACTUAL")
 bs_data = blp.bdh(tickers=tickers, flds=bs_lookup,
